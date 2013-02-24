@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <parent>
+	<parent>
 		<groupId>org.sonatype.oss</groupId>
 		<artifactId>oss-parent</artifactId>
 		<version>7</version>
 	</parent>
 
 	<groupId>org.telosys.starterkits</groupId>
-  <artifactId>angularHtml5offline-starterkit</artifactId>
-  <version>1.0.0</version>
-  <packaging>maven-archetype</packaging>
+	<artifactId>angularHtml5offline-starterkit</artifactId>
+	<version>1.0.0</version>
+	<packaging>maven-archetype</packaging>
 
-  <name>angularHtml5offline-starterkit</name>
+	<name>angularHtml5offline-starterkit</name>
 	<description>archetype for starter Kit angular Html5 offline</description>
 	<url>https://github.com/asicfr/angularHtml5offline-starterkit</url>
 
@@ -25,12 +26,12 @@
 		</license>
 	</licenses>
 
-		<scm>
+	<scm>
 		<connection>scm:git:git@github.com:asicfr/angularHtml5offline-starterkit.git</connection>
 		<developerConnection>scm:git:git@github.com:asicfr/angularHtml5offline-starterkit.git</developerConnection>
 		<url>git@github.com:asicfr/angularHtml5offline-starterkit.git</url>
-	  <tag>angularHtml5offline-starterkit-1.0.0</tag>
-  </scm>
+		<tag>angularHtml5offline-starterkit-1.0.0</tag>
+	</scm>
 
 	<developers>
 		<developer>
