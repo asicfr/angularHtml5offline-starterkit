@@ -1,0 +1,77 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+// Global module
+var bookStore = angular.module('bookStore', ['bookStore.main', 
+${symbol_pound}foreach ( ${symbol_dollar}entityClass in ${symbol_dollar}selectedEntities )
+    'bookStore.${symbol_dollar}{entityClass.name.toLowerCase()}', 
+${symbol_pound}end
+    'bookStore.storage.services']);
+
+// Add usefull fct into rootScope
+bookStore.run(function(${symbol_dollar}{DOLLAR}rootScope, ${symbol_dollar}{DOLLAR}templateCache, ${symbol_dollar}{DOLLAR}http, ApiStorage) {
+
+	// Force template cache to allow offline for all partials
+	${symbol_dollar}{DOLLAR}http.get('gen/partials/footer.html', {cache:${symbol_dollar}{DOLLAR}templateCache});
+    ${symbol_dollar}{DOLLAR}http.get('gen/partials/header.html', {cache:${symbol_dollar}{DOLLAR}templateCache});
+    ${symbol_dollar}{DOLLAR}http.get('partials/inprogress.html', {cache:${symbol_dollar}{DOLLAR}templateCache});
+    ${symbol_dollar}{DOLLAR}http.get('partials/welcome.html', {cache:${symbol_dollar}{DOLLAR}templateCache});
+
+${symbol_pound}foreach ( ${symbol_dollar}entityClass in ${symbol_dollar}selectedEntities )
+    ${symbol_dollar}{DOLLAR}http.get('gen/pages/${symbol_dollar}{entityClass.name.toLowerCase()}/create.html', {cache:${symbol_dollar}{DOLLAR}templateCache});
+    ${symbol_dollar}{DOLLAR}http.get('gen/pages/${symbol_dollar}{entityClass.name.toLowerCase()}/edit.html', {cache:${symbol_dollar}{DOLLAR}templateCache});
+    ${symbol_dollar}{DOLLAR}http.get('gen/pages/${symbol_dollar}{entityClass.name.toLowerCase()}/list.html', {cache:${symbol_dollar}{DOLLAR}templateCache});
+    
+${symbol_pound}end
+
+	// Logger
+	${symbol_dollar}{DOLLAR}rootScope.logMe = function (logentry) {
+		console.log(logentry);
+	};
+
+	// Detect html5 compliance with Modernizr
+	${symbol_dollar}{DOLLAR}rootScope.localstorageEnable = Modernizr.localstorage;
+	${symbol_dollar}{DOLLAR}rootScope.offlineEnable = Modernizr.applicationcache;
+	${symbol_dollar}{DOLLAR}rootScope.logMe("localstorage : " + ${symbol_dollar}{DOLLAR}rootScope.localstorageEnable);
+	${symbol_dollar}{DOLLAR}rootScope.logMe("offline : " + ${symbol_dollar}{DOLLAR}rootScope.offlineEnable);
+	
+	if ((${symbol_dollar}{DOLLAR}rootScope.offlineEnable == false) || (${symbol_dollar}{DOLLAR}rootScope.localstorageEnable == false)) {
+		toastr.error("Your browser isn't applicationCache compliant !");
+	} else {
+		// localstorage conf and init
+		${symbol_dollar}{DOLLAR}rootScope.dataStoreKey = "dataStoreKey";
+		${symbol_dollar}{DOLLAR}rootScope.dataStore = {};
+		ApiStorage.init();
+	}
+	
+	// Configuration toastr
+	toastr.options.positionClass = 'toast-bottom-right';
+});
+
+// Welcome module
+var bookStoremain = angular.module('bookStore.main', [], function(${symbol_dollar}{DOLLAR}routeProvider, ${symbol_dollar}{DOLLAR}locationProvider) {
+	
+	// Declare welcome route
+	${symbol_dollar}{DOLLAR}routeProvider.when('/welcome', {
+		templateUrl : 'partials/welcome.html',
+	    controller: 'MainCtrl'
+	});
+
+	// Declare futur route
+	${symbol_dollar}{DOLLAR}routeProvider.when('/inprogress', {
+		templateUrl : 'main/inprogress.html',
+	    controller: 'MainCtrl'
+	});
+
+	// Declare default route
+	${symbol_dollar}{DOLLAR}routeProvider.otherwise({
+		redirectTo : '/welcome',
+	    controller: 'MainCtrl'
+	});
+});
+
+// Main controller
+bookStoremain.controller('MainCtrl', ['${symbol_dollar}{DOLLAR}scope', '${symbol_dollar}{DOLLAR}location', '${symbol_dollar}{DOLLAR}routeParams', function (${symbol_dollar}{DOLLAR}scope, ${symbol_dollar}{DOLLAR}location, ${symbol_dollar}{DOLLAR}routeParams) {
+    var self = this;
+}]);
+

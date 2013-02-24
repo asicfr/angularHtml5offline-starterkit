@@ -1,0 +1,66 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+/*
+ * Value Object Bean ( WIZAR TEMPLATE )
+ *
+ * Created on ${symbol_dollar}today.date ( Time ${symbol_dollar}today.time )
+ *
+ */
+
+package ${symbol_dollar}class.package;
+
+import java.io.Serializable;
+
+${symbol_pound}foreach( ${symbol_dollar}import in ${symbol_dollar}class.imports )
+import ${symbol_dollar}import ;
+${symbol_pound}end
+
+public class ${symbol_dollar}class.name implements Serializable
+{
+    private static final long serialVersionUID = 1L;
+
+    //----------------------------------------------------------------------
+    // ATTRIBUTES 
+    //----------------------------------------------------------------------
+${symbol_pound}foreach( ${symbol_dollar}field in ${symbol_dollar}class.attributes )
+    private ${symbol_dollar}field.formatedType(10) ${symbol_dollar}field.formatedName(12) ${symbol_pound}if(${symbol_dollar}field.initialValue)= ${symbol_dollar}{field.initialValue} ${symbol_pound}end; 
+    
+${symbol_pound}end
+  
+    //----------------------------------------------------------------------
+    // CONSTRUCTOR(S)
+    //----------------------------------------------------------------------
+    public ${symbol_dollar}{class.name}()
+    {
+        super();
+    }
+    
+    //----------------------------------------------------------------------
+    // GETTERS & SETTERS
+    //----------------------------------------------------------------------
+${symbol_pound}foreach( ${symbol_dollar}field in ${symbol_dollar}class.attributes )
+${symbol_pound}if ( ${symbol_dollar}field.databaseName ) 
+${symbol_pound}end
+${symbol_pound}if ( ${symbol_dollar}field.setter )    public void ${symbol_dollar}{field.setter}( ${symbol_dollar}field.type value )
+    {
+        this.${symbol_dollar}field.name = value;
+    }
+${symbol_pound}end
+${symbol_pound}if ( ${symbol_dollar}field.getter )    public ${symbol_dollar}field.type ${symbol_dollar}{field.getter}()
+    {
+        return this.${symbol_dollar}field.name;
+    }
+${symbol_pound}end
+
+${symbol_pound}end  
+
+    //----------------------------------------------------------------------
+    // toString METHOD
+    //----------------------------------------------------------------------
+    public String toString()
+    {
+${symbol_pound}${symbol_pound}        return ${symbol_dollar}class.toStringInstruction ;
+${symbol_dollar}class.toStringMethodCodeLines(8)
+    }
+}

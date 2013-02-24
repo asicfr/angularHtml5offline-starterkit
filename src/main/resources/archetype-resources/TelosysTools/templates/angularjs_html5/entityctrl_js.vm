@@ -1,0 +1,103 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+
+// ${symbol_dollar}{beanClass.name.toLowerCase()} module add into global module (see mainctrl.js)
+var bookStore${symbol_dollar}{beanClass.name.toLowerCase()} = angular.module('bookStore.${symbol_dollar}{beanClass.name.toLowerCase()}', ['bookStore.${symbol_dollar}{beanClass.name.toLowerCase()}.services'], function(${symbol_dollar}{DOLLAR}routeProvider, ${symbol_dollar}{DOLLAR}locationProvider) {
+
+	// ${symbol_dollar}{beanClass.name.toLowerCase()} list
+	${symbol_dollar}{DOLLAR}routeProvider.when('/${symbol_dollar}{beanClass.name.toLowerCase()}', {
+		templateUrl: 'gen/pages/${symbol_dollar}{beanClass.name.toLowerCase()}/list.html'
+	});
+
+	// ${symbol_dollar}{beanClass.name.toLowerCase()} create
+	${symbol_dollar}{DOLLAR}routeProvider.when('/${symbol_dollar}{beanClass.name.toLowerCase()}/create', {
+		templateUrl: 'gen/pages/${symbol_dollar}{beanClass.name.toLowerCase()}/create.html'
+	});
+
+	// ${symbol_dollar}{beanClass.name.toLowerCase()} edit
+	${symbol_dollar}{DOLLAR}routeProvider.when('/${symbol_dollar}{beanClass.name.toLowerCase()}/:id', {
+		templateUrl: 'gen/pages/${symbol_dollar}{beanClass.name.toLowerCase()}/edit.html'
+	});
+
+});
+
+// ${symbol_dollar}{beanClass.name.toLowerCase()} Controllers
+bookStore${symbol_dollar}{beanClass.name.toLowerCase()}.controller('${symbol_dollar}{beanClass.name}ListCtrl', ['${symbol_dollar}{DOLLAR}scope', '${symbol_dollar}{DOLLAR}location', '${symbol_dollar}{DOLLAR}routeParams', '${symbol_dollar}{DOLLAR}rootScope', 'Api${symbol_dollar}{beanClass.name}', 'ApiStorage', function (${symbol_dollar}{DOLLAR}scope, ${symbol_dollar}{DOLLAR}location, ${symbol_dollar}{DOLLAR}routeParams, ${symbol_dollar}{DOLLAR}rootScope, Api${symbol_dollar}{beanClass.name}, ApiStorage) {
+	${symbol_dollar}{DOLLAR}rootScope.logMe("${symbol_dollar}{beanClass.name}ListCtrl");
+	var self = this;
+	
+	${symbol_dollar}{DOLLAR}scope.${symbol_dollar}{beanClass.name.toLowerCase()}s = Api${symbol_dollar}{beanClass.name}.search();
+	${symbol_dollar}{DOLLAR}rootScope.logMe("search end");
+
+	// new ${symbol_dollar}{beanClass.name} call
+	${symbol_dollar}{DOLLAR}scope.openCreate${symbol_dollar}{beanClass.name}Page = function () {
+		${symbol_dollar}{DOLLAR}rootScope.logMe("openCreate${symbol_dollar}{beanClass.name}Page");
+		${symbol_dollar}{DOLLAR}location.path("/${symbol_dollar}{beanClass.name.toLowerCase()}/create");
+	};
+
+}]);
+
+
+bookStore${symbol_dollar}{beanClass.name.toLowerCase()}.controller('${symbol_dollar}{beanClass.name}DetailCtrl', ['${symbol_dollar}{DOLLAR}scope', '${symbol_dollar}{DOLLAR}location', '${symbol_dollar}{DOLLAR}routeParams', '${symbol_dollar}{DOLLAR}rootScope', 'Api${symbol_dollar}{beanClass.name}', 'ApiStorage', function (${symbol_dollar}{DOLLAR}scope, ${symbol_dollar}{DOLLAR}location, ${symbol_dollar}{DOLLAR}routeParams, ${symbol_dollar}{DOLLAR}rootScope, Api${symbol_dollar}{beanClass.name}, ApiStorage) {
+	${symbol_dollar}{DOLLAR}rootScope.logMe("${symbol_dollar}{beanClass.name}DetailCtrl");
+	${symbol_dollar}{DOLLAR}scope.idCurrent = ${symbol_dollar}{DOLLAR}routeParams.id;
+	
+	${symbol_dollar}{DOLLAR}rootScope.logMe("get ${symbol_dollar}{beanClass.name.toLowerCase()} ");
+	${symbol_dollar}{DOLLAR}scope.one${symbol_dollar}{beanClass.name.toLowerCase()} = Api${symbol_dollar}{beanClass.name}.get(${symbol_dollar}{DOLLAR}scope.idCurrent);
+	
+	if (${symbol_dollar}{DOLLAR}scope.one${symbol_dollar}{beanClass.name.toLowerCase()} === undefined) {
+		toastr.error("An error has occurred !");
+	}
+	
+	// ${symbol_dollar}{beanClass.name} update
+	${symbol_dollar}{DOLLAR}scope.update${symbol_dollar}{beanClass.name} = function () {
+		${symbol_dollar}{DOLLAR}rootScope.logMe("update${symbol_dollar}{beanClass.name}");
+		if (Api${symbol_dollar}{beanClass.name}.update(${symbol_dollar}{DOLLAR}scope.idCurrent, ${symbol_dollar}{DOLLAR}scope.one${symbol_dollar}{beanClass.name.toLowerCase()})) {
+			toastr.success("The ${symbol_dollar}{beanClass.name.toLowerCase()} has been successfully updated");
+		} else {
+			toastr.error("An error has occurred !");
+		}
+	};
+
+	// ${symbol_dollar}{beanClass.name} remove
+	${symbol_dollar}{DOLLAR}scope.remove${symbol_dollar}{beanClass.name} = function () {
+		${symbol_dollar}{DOLLAR}rootScope.logMe("remove${symbol_dollar}{beanClass.name}");
+		if (Api${symbol_dollar}{beanClass.name}.remove(${symbol_dollar}{DOLLAR}scope.idCurrent)) {
+			toastr.success("The ${symbol_dollar}{beanClass.name.toLowerCase()} has been successfully removed");
+			${symbol_dollar}{DOLLAR}location.path("/${symbol_dollar}{beanClass.name.toLowerCase()}");
+		} else {
+			toastr.error("An error has occurred !");
+		}
+	};
+
+	// Return to list
+	${symbol_dollar}{DOLLAR}scope.openList${symbol_dollar}{beanClass.name}Page = function () {
+		${symbol_dollar}{DOLLAR}rootScope.logMe("openList${symbol_dollar}{beanClass.name}Page");
+		${symbol_dollar}{DOLLAR}location.path("/${symbol_dollar}{beanClass.name.toLowerCase()}");
+	};
+
+}]);
+
+bookStore${symbol_dollar}{beanClass.name.toLowerCase()}.controller('${symbol_dollar}{beanClass.name}CreateCtrl', ['${symbol_dollar}{DOLLAR}scope', '${symbol_dollar}{DOLLAR}location', '${symbol_dollar}{DOLLAR}routeParams', '${symbol_dollar}{DOLLAR}rootScope', 'Api${symbol_dollar}{beanClass.name}', function (${symbol_dollar}{DOLLAR}scope, ${symbol_dollar}{DOLLAR}location, ${symbol_dollar}{DOLLAR}routeParams, ${symbol_dollar}{DOLLAR}rootScope, Api${symbol_dollar}{beanClass.name}) {
+	${symbol_dollar}{DOLLAR}rootScope.logMe("${symbol_dollar}{beanClass.name}CreateCtrl");
+	${symbol_dollar}{DOLLAR}scope.one${symbol_dollar}{beanClass.name.toLowerCase()} = {};
+	
+	// ${symbol_dollar}{beanClass.name} save
+	${symbol_dollar}{DOLLAR}scope.save${symbol_dollar}{beanClass.name} = function () {
+		${symbol_dollar}{DOLLAR}rootScope.logMe("save${symbol_dollar}{beanClass.name}");
+		if (Api${symbol_dollar}{beanClass.name}.create(${symbol_dollar}{DOLLAR}scope.one${symbol_dollar}{beanClass.name.toLowerCase()})) {
+			toastr.success("The ${symbol_dollar}{beanClass.name.toLowerCase()} has been successfully created");
+			${symbol_dollar}{DOLLAR}location.path("/${symbol_dollar}{beanClass.name.toLowerCase()}");
+		} else {
+			toastr.error("An error has occurred !");
+		}
+	};
+
+	// Return to list
+	${symbol_dollar}{DOLLAR}scope.openList${symbol_dollar}{beanClass.name}Page = function () {
+		${symbol_dollar}{DOLLAR}rootScope.logMe("openList${symbol_dollar}{beanClass.name}Page");
+		${symbol_dollar}{DOLLAR}location.path("/${symbol_dollar}{beanClass.name.toLowerCase()}");
+	};
+
+}]);

@@ -1,0 +1,29 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+
+// ${symbol_dollar}{beanClass.name} services
+var bookServicesModule = angular.module('bookStore.${symbol_dollar}{beanClass.name.toLowerCase()}.services', ['bookStore.storage.services']).factory('Api${symbol_dollar}{beanClass.name}', function(${symbol_dollar}{DOLLAR}rootScope, ${symbol_dollar}{DOLLAR}http, ApiStorage) {
+    return {
+        get: function (id) {
+    		${symbol_dollar}{DOLLAR}rootScope.logMe("${symbol_dollar}{beanClass.name.toLowerCase()} srv get " + id);
+    		return ApiStorage.read("${symbol_dollar}{beanClass.name.toLowerCase()}", id);
+        },
+        search: function () {
+    		${symbol_dollar}{DOLLAR}rootScope.logMe("${symbol_dollar}{beanClass.name.toLowerCase()} srv search");
+    		return ApiStorage.search("${symbol_dollar}{beanClass.name.toLowerCase()}");
+        },
+        create: function (${symbol_dollar}{beanClass.name.toLowerCase()}) {
+    		${symbol_dollar}{DOLLAR}rootScope.logMe("${symbol_dollar}{beanClass.name.toLowerCase()} srv create");
+    		return ApiStorage.create("${symbol_dollar}{beanClass.name.toLowerCase()}", ${symbol_dollar}{beanClass.name.toLowerCase()});
+    	},
+        update: function (id, ${symbol_dollar}{beanClass.name.toLowerCase()}) {
+    		${symbol_dollar}{DOLLAR}rootScope.logMe("${symbol_dollar}{beanClass.name.toLowerCase()} srv update");
+    		return ApiStorage.update("${symbol_dollar}{beanClass.name.toLowerCase()}", id, ${symbol_dollar}{beanClass.name.toLowerCase()});
+    	},
+        remove: function (id) {
+    		${symbol_dollar}{DOLLAR}rootScope.logMe("${symbol_dollar}{beanClass.name.toLowerCase()} srv remove " + id);
+    		return ApiStorage.remove("${symbol_dollar}{beanClass.name.toLowerCase()}", id);
+        }
+    };
+});
