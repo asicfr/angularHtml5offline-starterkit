@@ -1,6 +1,3 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE log4j:configuration PUBLIC "-//log4j/log4j Configuration//EN" "log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" >
@@ -11,24 +8,6 @@
     	</layout>
     </appender>
     
-    
-    <logger name="${package}" additivity="false">
-        <level value="ERROR"/>
-        <appender-ref ref="stdout"/>
-    </logger>
-    <logger name="org.demo" additivity="false">
-        <level value="ERROR"/>
-        <appender-ref ref="stdout"/>
-    </logger>
-    <logger name="org.apache" additivity="false">
-        <level value="ERROR"/>
-        <appender-ref ref="stdout"/>
-    </logger>
-    <logger name="com.opensymphony" additivity="false">
-        <level value="ERROR"/>
-        <appender-ref ref="stdout"/>
-    </logger>
-	
 	<root> 
 	    <priority value ="ERROR" /> 
 	    <appender-ref ref="stdout" /> 
