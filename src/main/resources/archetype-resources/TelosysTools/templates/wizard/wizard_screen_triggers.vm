@@ -1,162 +1,159 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 /*
- * Triggers for ${symbol_dollar}screendata.name operations
- * Created on ${symbol_dollar}today.date ( Time ${symbol_dollar}today.time )
+ * Triggers for $screendata.name operations
+ * Created on $today.date ( Time $today.time )
  */
 
-// triggers.info : ${symbol_dollar}triggers.info 
-// triggers.importDatabaseSession : ${symbol_dollar}triggers.importDatabaseSession 
+// triggers.info : $triggers.info 
+// triggers.importDatabaseSession : $triggers.importDatabaseSession 
  
-package ${symbol_dollar}class.package;
+package $class.package;
 
-${symbol_pound}if( ${symbol_dollar}triggers.importDatabaseSession )
+#if( $triggers.importDatabaseSession )
 import org.objectweb.telosys.dal.dao.DatabaseSession;
-${symbol_pound}end
+#end
 import org.objectweb.telosys.rpl.ScreenRequest;
 import org.objectweb.telosys.rpl.ScreenResponse;
 import org.objectweb.telosys.screen.core.ScreenContext;
-${symbol_pound}if( ${symbol_dollar}triggers.importScreenData )
+#if( $triggers.importScreenData )
 import org.objectweb.telosys.screen.core.ScreenData;
-${symbol_pound}end
+#end
 import org.objectweb.telosys.screen.core.StandardScreenTriggers;
 
-import ${symbol_dollar}screendata.fullName;
+import $screendata.fullName;
 
 /**
- * Triggers for ${symbol_dollar}screendata.name operations
+ * Triggers for $screendata.name operations
  * 
  * @author xx
  */
-public class ${symbol_dollar}class.name extends StandardScreenTriggers
+public class $class.name extends StandardScreenTriggers
 {
-${symbol_pound}if ( ${symbol_dollar}triggers.beforeGet )
+#if ( $triggers.beforeGet )
     public boolean beforeGet ( ScreenContext context, ScreenRequest request, ScreenResponse response)
     {
-    	${symbol_dollar}screendata.name currentData = (${symbol_dollar}screendata.name) context.getCurrentData() ;
+    	$screendata.name currentData = ($screendata.name) context.getCurrentData() ;
 		return true ;
 	}
 
-${symbol_pound}end
-${symbol_pound}if ( ${symbol_dollar}triggers.afterGet )
+#end
+#if ( $triggers.afterGet )
     public boolean afterGet ( ScreenContext context, ScreenRequest request, ScreenResponse response)
     {
-    	${symbol_dollar}screendata.name currentData = (${symbol_dollar}screendata.name) context.getCurrentData() ;
+    	$screendata.name currentData = ($screendata.name) context.getCurrentData() ;
 		return true ;
 	}
 
-${symbol_pound}end
-${symbol_pound}if ( ${symbol_dollar}triggers.beforeSet )
+#end
+#if ( $triggers.beforeSet )
     public boolean beforeSet (ScreenData screenData, ScreenContext context, ScreenRequest request, ScreenResponse response)
     {
-    	${symbol_dollar}screendata.name dataToSet = (${symbol_dollar}screendata.name) screenData ;
+    	$screendata.name dataToSet = ($screendata.name) screenData ;
 		return true ;
 	}
 
-${symbol_pound}end
-${symbol_pound}if ( ${symbol_dollar}triggers.afterSet )
+#end
+#if ( $triggers.afterSet )
     public boolean afterSet (ScreenData screenData, ScreenContext context, ScreenRequest request, ScreenResponse response)
     {
-    	${symbol_dollar}screendata.name dataToSet = (${symbol_dollar}screendata.name) screenData ;
+    	$screendata.name dataToSet = ($screendata.name) screenData ;
 		return true ;
 	}
 
-${symbol_pound}end
-${symbol_pound}if ( ${symbol_dollar}triggers.beforeClear )
+#end
+#if ( $triggers.beforeClear )
     public boolean beforeClear (ScreenContext context, ScreenRequest request, ScreenResponse response)
     {
-    	${symbol_dollar}screendata.name currentData = (${symbol_dollar}screendata.name) context.getCurrentData() ;
+    	$screendata.name currentData = ($screendata.name) context.getCurrentData() ;
 		return true ;
 	}
 
-${symbol_pound}end
-${symbol_pound}if ( ${symbol_dollar}triggers.afterClear )
+#end
+#if ( $triggers.afterClear )
     public boolean afterClear (ScreenContext context, ScreenRequest request, ScreenResponse response)
     {
-    	${symbol_dollar}screendata.name currentData = (${symbol_dollar}screendata.name) context.getCurrentData() ;
+    	$screendata.name currentData = ($screendata.name) context.getCurrentData() ;
 		return true ;
 	}
 
-${symbol_pound}end
-${symbol_pound}if ( ${symbol_dollar}triggers.beforeLoad )
+#end
+#if ( $triggers.beforeLoad )
     public boolean beforeLoad (ScreenData screenData, ScreenContext context, ScreenRequest request, ScreenResponse response, DatabaseSession dbSession )
     {
-    	${symbol_dollar}screendata.name dataToLoad = (${symbol_dollar}screendata.name) screenData ;
+    	$screendata.name dataToLoad = ($screendata.name) screenData ;
 		return true ;
 	}
 
-${symbol_pound}end
-${symbol_pound}if ( ${symbol_dollar}triggers.afterLoad )
+#end
+#if ( $triggers.afterLoad )
     public boolean afterLoad (ScreenData screenData, ScreenContext context, ScreenRequest request, ScreenResponse response, DatabaseSession dbSession )
     {
-    	${symbol_dollar}screendata.name dataLoaded = (${symbol_dollar}screendata.name) screenData ;
+    	$screendata.name dataLoaded = ($screendata.name) screenData ;
 		return true ;
 	}
 
-${symbol_pound}end
-${symbol_pound}if ( ${symbol_dollar}triggers.beforeSave )
+#end
+#if ( $triggers.beforeSave )
     public boolean beforeSave (ScreenData screenData, ScreenContext context, ScreenRequest request, ScreenResponse response, DatabaseSession dbSession )
     {
-    	${symbol_dollar}screendata.name dataToSave = (${symbol_dollar}screendata.name) screenData ;
+    	$screendata.name dataToSave = ($screendata.name) screenData ;
 		return true ;
 	}
 
-${symbol_pound}end
-${symbol_pound}if ( ${symbol_dollar}triggers.afterSave )
+#end
+#if ( $triggers.afterSave )
     public boolean afterSave (ScreenData screenData, ScreenContext context, ScreenRequest request, ScreenResponse response, DatabaseSession dbSession )
     {
-    	${symbol_dollar}screendata.name dataSaved = (${symbol_dollar}screendata.name) screenData ;
+    	$screendata.name dataSaved = ($screendata.name) screenData ;
 		return true ;
 	}
 
-${symbol_pound}end
-${symbol_pound}if ( ${symbol_dollar}triggers.beforeDelete )
+#end
+#if ( $triggers.beforeDelete )
     public boolean beforeDelete (ScreenData screenData, ScreenContext context, ScreenRequest request, ScreenResponse response, DatabaseSession dbSession )
     {
-    	${symbol_dollar}screendata.name dataToDelete = (${symbol_dollar}screendata.name) screenData ;
+    	$screendata.name dataToDelete = ($screendata.name) screenData ;
 		return true ;
 	}
 
-${symbol_pound}end
-${symbol_pound}if ( ${symbol_dollar}triggers.afterDelete )
+#end
+#if ( $triggers.afterDelete )
     public boolean afterDelete (ScreenData screenData, ScreenContext context, ScreenRequest request, ScreenResponse response, DatabaseSession dbSession )
     {
-    	${symbol_dollar}screendata.name dataDeleted = (${symbol_dollar}screendata.name) screenData ;
+    	$screendata.name dataDeleted = ($screendata.name) screenData ;
 		return true ;
 	}
 
-${symbol_pound}end
-${symbol_pound}if ( ${symbol_dollar}triggers.beforeUpdate )
+#end
+#if ( $triggers.beforeUpdate )
     public boolean beforeUpdate (ScreenData screenData, ScreenContext context, ScreenRequest request, ScreenResponse response, DatabaseSession dbSession )
     {
-    	${symbol_dollar}screendata.name dataToUpdate = (${symbol_dollar}screendata.name) screenData ;
+    	$screendata.name dataToUpdate = ($screendata.name) screenData ;
 		return true ;
 	}
 
-${symbol_pound}end
-${symbol_pound}if ( ${symbol_dollar}triggers.afterUpdate )
+#end
+#if ( $triggers.afterUpdate )
     public boolean afterUpdate (ScreenData screenData, ScreenContext context, ScreenRequest request, ScreenResponse response, DatabaseSession dbSession )
     {
-    	${symbol_dollar}screendata.name dataUpdated = (${symbol_dollar}screendata.name) screenData ;
+    	$screendata.name dataUpdated = ($screendata.name) screenData ;
 		return true ;
 	}
 
-${symbol_pound}end
-${symbol_pound}if ( ${symbol_dollar}triggers.beforeInsert )
+#end
+#if ( $triggers.beforeInsert )
     public boolean beforeInsert (ScreenData screenData, ScreenContext context, ScreenRequest request, ScreenResponse response, DatabaseSession dbSession )
     {
-    	${symbol_dollar}screendata.name dataToInsert = (${symbol_dollar}screendata.name) screenData ;
+    	$screendata.name dataToInsert = ($screendata.name) screenData ;
 		return true ;
 	}
 
-${symbol_pound}end
-${symbol_pound}if ( ${symbol_dollar}triggers.afterInsert )
+#end
+#if ( $triggers.afterInsert )
     public boolean afterInsert (ScreenData screenData, ScreenContext context, ScreenRequest request, ScreenResponse response, DatabaseSession dbSession )
     {
-    	${symbol_dollar}screendata.name dataInserted = (${symbol_dollar}screendata.name) screenData ;
+    	$screendata.name dataInserted = ($screendata.name) screenData ;
 		return true ;
 	}
 
-${symbol_pound}end
+#end
 }

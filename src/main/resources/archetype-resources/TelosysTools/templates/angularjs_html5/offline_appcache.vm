@@ -1,9 +1,6 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 CACHE MANIFEST
  
-${symbol_pound} Build ${symbol_dollar}today.date("dd/MM/yyyy HH:mm")
+# Build $today.date("dd/MM/yyyy HH:mm")
  
 CACHE:
 cssext/bootstrap-responsive.min.css
@@ -33,16 +30,16 @@ gen/js/mainctrl.js
 gen/partials/footer.html
 gen/partials/header.html
 
-${symbol_pound}foreach ( ${symbol_dollar}entityClass in ${symbol_dollar}selectedEntities )
-gen/jsmodules/${symbol_dollar}{entityClass.name.toLowerCase()}/${symbol_dollar}{entityClass.name.toLowerCase()}ctrl.js
-gen/jsmodules/${symbol_dollar}{entityClass.name.toLowerCase()}/${symbol_dollar}{entityClass.name.toLowerCase()}srv.js
-${symbol_pound}end 
+#foreach ( $entityClass in $selectedEntities )
+gen/jsmodules/${entityClass.name.toLowerCase()}/${entityClass.name.toLowerCase()}ctrl.js
+gen/jsmodules/${entityClass.name.toLowerCase()}/${entityClass.name.toLowerCase()}srv.js
+#end 
 
-${symbol_pound}foreach ( ${symbol_dollar}entityClass in ${symbol_dollar}selectedEntities )
-gen/pages/${symbol_dollar}{entityClass.name.toLowerCase()}/create.html
-gen/pages/${symbol_dollar}{entityClass.name.toLowerCase()}/edit.html
-gen/pages/${symbol_dollar}{entityClass.name.toLowerCase()}/list.html
-${symbol_pound}end 
+#foreach ( $entityClass in $selectedEntities )
+gen/pages/${entityClass.name.toLowerCase()}/create.html
+gen/pages/${entityClass.name.toLowerCase()}/edit.html
+gen/pages/${entityClass.name.toLowerCase()}/list.html
+#end 
 
 NETWORK:
 http://*

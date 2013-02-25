@@ -1,12 +1,9 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 /*
  * Dataset class 
- * Created on ${symbol_dollar}today.date ( Time ${symbol_dollar}today.time )
+ * Created on $today.date ( Time $today.time )
  */
 
-package ${symbol_dollar}class.package;
+package $class.package;
 
 import org.objectweb.telosys.common.TelosysException;
 import org.objectweb.telosys.common.data.DataSet;
@@ -17,7 +14,7 @@ import testcases.common.Envir;
 /**
  *
  */
-public class ${symbol_dollar}{class.name}
+public class ${class.name}
 {
     public static void print(DataSet ds)
     {
@@ -37,14 +34,14 @@ public class ${symbol_dollar}{class.name}
         Envir.init();
 
         System.out.println("=============================");
-        SQLDataSet ds = ${symbol_dollar}{datasetClass.name}.load(0); // Load from the given DB
+        SQLDataSet ds = ${datasetClass.name}.load(0); // Load from the given DB
         print(ds);
         System.out.println("----------");
         printSQL(ds);
         
         
         System.out.println("=============================");
-        SQLDataSet ds2 = ${symbol_dollar}{datasetClass.name}.getDataSet();
+        SQLDataSet ds2 = ${datasetClass.name}.getDataSet();
         try
         {
             ds2.load();

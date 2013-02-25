@@ -1,12 +1,9 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 /*
- * Procedures dispatcher for screen ${symbol_dollar}screendata.name
- * Created on ${symbol_dollar}today.date ( Time ${symbol_dollar}today.time )
+ * Procedures dispatcher for screen $screendata.name
+ * Created on $today.date ( Time $today.time )
  */
 
-package ${symbol_dollar}class.package;
+package $class.package;
 
 import org.objectweb.telosys.common.TelosysException;
 import org.objectweb.telosys.rpl.ScreenRequest;
@@ -16,11 +13,11 @@ import org.objectweb.telosys.screen.core.ScreenDataElements;
 import org.objectweb.telosys.screen.core.StandardScreenProcedures;
 
 /**
- * Procedures dispatcher for screen ${symbol_dollar}screendata.name
+ * Procedures dispatcher for screen $screendata.name
  * 
  * @author xx
  */
-public class ${symbol_dollar}class.name extends StandardScreenProcedures
+public class $class.name extends StandardScreenProcedures
 {
 	/*
 	 * "execute" method implementation
@@ -38,7 +35,7 @@ public class ${symbol_dollar}class.name extends StandardScreenProcedures
     	// Do something here ...
     	
     	// Use current screen context data 
-    	${symbol_dollar}screendata.name currentData = (${symbol_dollar}screendata.name) screenContext.getCurrentData() ;
+    	$screendata.name currentData = ($screendata.name) screenContext.getCurrentData() ;
     	currentData.getElement("elementName");
     	
     	// Use the request parameters 

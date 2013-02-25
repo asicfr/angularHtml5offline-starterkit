@@ -1,12 +1,9 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 /*
  * Dataset class 
- * Created on ${symbol_dollar}today.date ( Time ${symbol_dollar}today.time )
+ * Created on $today.date ( Time $today.time )
  */
 
-package ${symbol_dollar}class.package;
+package $class.package;
 
 import org.objectweb.telosys.common.TelosysException;
 import org.objectweb.telosys.common.TelosysRuntimeException;
@@ -17,15 +14,15 @@ import org.objectweb.telosys.dal.dataset.SQLDataSetDefinition;
  * @author ...
  *
  */
-public class ${symbol_dollar}class.name
+public class $class.name
 {
     //-------------------------------------------------------------------------------------
     // SQL request 
     //-------------------------------------------------------------------------------------
-    private static final String SQL_SELECT = "${symbol_dollar}context.select" ; 
-    private static final String SQL_FROM   = "${symbol_dollar}context.from" ; 
-    private static final String SQL_WHERE  = "${symbol_dollar}context.where" ; 
-    private static final String SQL_END    = "${symbol_dollar}context.option" ; 
+    private static final String SQL_SELECT = "$context.select" ; 
+    private static final String SQL_FROM   = "$context.from" ; 
+    private static final String SQL_WHERE  = "$context.where" ; 
+    private static final String SQL_END    = "$context.option" ; 
 
     //-------------------------------------------------------------------------------------
     // Private methods 

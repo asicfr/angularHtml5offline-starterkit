@@ -1,26 +1,23 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 
-<div id="${symbol_dollar}{beanClass.name.toLowerCase()}Edit" data-ng-controller="${symbol_dollar}{beanClass.name}DetailCtrl">
+<div id="${beanClass.name.toLowerCase()}Edit" data-ng-controller="${beanClass.name}DetailCtrl">
  
-    <h2>${symbol_dollar}{beanClass.name} Edit</h2>
+    <h2>${beanClass.name} Edit</h2>
     
  	<form class="form-horizontal">
  	
-	${symbol_pound}foreach( ${symbol_dollar}field in ${symbol_dollar}beanClass.attributes )
+	#foreach( $field in $beanClass.attributes )
  		<div class="control-group">
-			<label class="control-label" for="${symbol_dollar}{field.name}">${symbol_dollar}{field.name}</label>
+			<label class="control-label" for="${field.name}">${field.name}</label>
 			<div class="controls">
-				<input type="text" id="${symbol_dollar}{field.name}" data-ng-model="one${symbol_dollar}{beanClass.name.toLowerCase()}.${symbol_dollar}{field.name}" />
+				<input type="text" id="${field.name}" data-ng-model="one${beanClass.name.toLowerCase()}.${field.name}" />
 			</div>
 		</div>
-  	${symbol_pound}end
+  	#end
 
 	</form>
  	<br />
-    <button data-ng-click="update${symbol_dollar}{beanClass.name}()">Save</button>
-    <button data-ng-click="remove${symbol_dollar}{beanClass.name}()">Remove</button>
-	<button data-ng-click="openList${symbol_dollar}{beanClass.name}Page()">Return to list</button>
+    <button data-ng-click="update${beanClass.name}()">Save</button>
+    <button data-ng-click="remove${beanClass.name}()">Remove</button>
+	<button data-ng-click="openList${beanClass.name}Page()">Return to list</button>
  
 </div>

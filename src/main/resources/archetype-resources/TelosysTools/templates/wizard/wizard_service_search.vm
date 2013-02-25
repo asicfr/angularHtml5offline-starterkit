@@ -1,13 +1,10 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 /*
  *
- * Created on ${symbol_dollar}today.date ( Time ${symbol_dollar}today.time )
+ * Created on $today.date ( Time $today.time )
  *
  */
 
-package ${symbol_dollar}class.getPackage();
+package $class.getPackage();
 
 import org.objectweb.telosys.dal.dataset.SQLDataSetDefinition;
 import org.objectweb.telosys.dal.sql.ParamType;
@@ -16,7 +13,7 @@ import org.objectweb.telosys.dal.sql.Criterion;
 import org.objectweb.telosys.screen.env.ScreenSession;
 import org.objectweb.telosys.service.ServiceRequest;
 import org.objectweb.telosys.service.ServiceResponse;
-import org.objectweb.telosys.service.search.${symbol_dollar}class.getSuperClass();
+import org.objectweb.telosys.service.search.$class.getSuperClass();
 
 /**
  * Search service
@@ -25,7 +22,7 @@ import org.objectweb.telosys.service.search.${symbol_dollar}class.getSuperClass(
  *
  */
 
-public class ${symbol_dollar}class.getName() extends ${symbol_dollar}class.getSuperClass()
+public class $class.getName() extends $class.getSuperClass()
 {
     private final static String        SQL_SELECT     = "select a, b, c, d, e, f";
 
@@ -46,7 +43,7 @@ public class ${symbol_dollar}class.getName() extends ${symbol_dollar}class.getSu
 
     private final static int        MAX_ROWS   = 10 ;
 
-    public ${symbol_dollar}class.getName()()
+    public $class.getName()()
     {
         SQLDataSetDefinition dsDefinition = new SQLDataSetDefinition(SQL_SELECT, SQL_FROM, SQL_WHERE, SQL_OPTIONS);
         Criteria criteria = new Criteria(SQL_CRITERIA, "and");

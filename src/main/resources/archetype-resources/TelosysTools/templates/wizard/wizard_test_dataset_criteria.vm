@@ -1,12 +1,9 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 /*
  * Dataset Test class 
- * Created on ${symbol_dollar}today.date ( Time ${symbol_dollar}today.time )
+ * Created on $today.date ( Time $today.time )
  */
 
-package ${symbol_dollar}class.package;
+package $class.package;
 
 import org.objectweb.telosys.common.TelosysException;
 import org.objectweb.telosys.common.data.DataSet;
@@ -20,7 +17,7 @@ import testcases.common.Envir;
 /**
  *
  */
-public class ${symbol_dollar}{class.name}
+public class ${class.name}
 {
     public static void print(DataSet ds)
     {
@@ -50,16 +47,16 @@ public class ${symbol_dollar}{class.name}
         Envir.init();
 
         System.out.println("=============================");
-        SQLDataSet ds = ${symbol_dollar}{datasetClass.name}.load(0); // Load from the given DB
+        SQLDataSet ds = ${datasetClass.name}.load(0); // Load from the given DB
         print(ds);
         System.out.println("----------");
         printSQL(ds);
         
         System.out.println("=============================");
-        Criteria crit = ${symbol_dollar}{datasetClass.name}.getCriteria();
+        Criteria crit = ${datasetClass.name}.getCriteria();
         //crit.doNotUse(1);
         crit.useWithValue(2, "123");
-        ds = ${symbol_dollar}{datasetClass.name}.load(crit);
+        ds = ${datasetClass.name}.load(crit);
         print(ds);
         System.out.println("----------");
         print(crit);
@@ -70,7 +67,7 @@ public class ${symbol_dollar}{class.name}
         crit.reset(); // keep the same instance => reset all to "Not Used"
         crit.useWithValue(1, "Z%");
         
-        ds = ${symbol_dollar}{datasetClass.name}.load(crit, 0);
+        ds = ${datasetClass.name}.load(crit, 0);
         print(ds);
         System.out.println("----------");
         print(crit);
@@ -78,7 +75,7 @@ public class ${symbol_dollar}{class.name}
         
         
         System.out.println("=============================");
-        SQLDataSet ds2 = ${symbol_dollar}{datasetClass.name}.getDataSet();
+        SQLDataSet ds2 = ${datasetClass.name}.getDataSet();
         try
         {
             ds2.load();
@@ -91,7 +88,7 @@ public class ${symbol_dollar}{class.name}
         printSQL(ds2);
 
         System.out.println("=============================");
-        SQLDataSet ds3 = ${symbol_dollar}{datasetClass.name}.getDataSet(crit);
+        SQLDataSet ds3 = ${datasetClass.name}.getDataSet(crit);
         try
         {
             ds3.load();

@@ -1,22 +1,19 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 /*
  * Service class 
- * Created on ${symbol_dollar}today.date ( Time ${symbol_dollar}today.time )
- * Target Name     : "${symbol_dollar}target.targetName"
- * Target Template : "${symbol_dollar}target.template"
- * Target Entity   : "${symbol_dollar}target.entityName"
+ * Created on $today.date ( Time $today.time )
+ * Target Name     : "$target.targetName"
+ * Target Template : "$target.template"
+ * Target Entity   : "$target.entityName"
  */
 
-package ${symbol_dollar}{target.javaPackageFromFolder(${symbol_dollar}project.srcFolder)};
+package ${target.javaPackageFromFolder($project.srcFolder)};
 
 //--- Selected entities
-${symbol_pound}foreach ( ${symbol_dollar}entityClass in ${symbol_dollar}selectedEntities )
+#foreach ( $entityClass in $selectedEntities )
 //----------------------------------------------------
-// ${symbol_dollar}entityClass.name ( package ${symbol_dollar}entityClass.package) : Table = ${symbol_dollar}entityClass.sqlTable
+// $entityClass.name ( package $entityClass.package) : Table = $entityClass.sqlTable
 // KEY FIELDS :
-${symbol_pound}foreach ( ${symbol_dollar}field in ${symbol_dollar}entityClass.keyAttributes )
-//    . field  :  ${symbol_dollar}field.name ( ${symbol_dollar}field.type) - ${symbol_dollar}field.databaseName 
-${symbol_pound}end
-${symbol_pound}end 
+#foreach ( $field in $entityClass.keyAttributes )
+//    . field  :  $field.name ( $field.type) - $field.databaseName 
+#end
+#end 

@@ -1,12 +1,9 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 /*
  * Screen Context Data class 
- * Created on ${symbol_dollar}today.date ( Time ${symbol_dollar}today.time )
+ * Created on $today.date ( Time $today.time )
  */
 
-package ${symbol_dollar}class.package;
+package $class.package;
 
 import org.objectweb.telosys.common.TelosysException;
 import org.objectweb.telosys.screen.core.StandardScreenData;
@@ -17,7 +14,7 @@ import org.objectweb.telosys.screen.core.StandardScreenData;
  * @author xx
  *
  */
-public class ${symbol_dollar}class.name extends StandardScreenData 
+public class $class.name extends StandardScreenData 
 {
     private static final long serialVersionUID = 1L;
 
@@ -34,7 +31,7 @@ public class ${symbol_dollar}class.name extends StandardScreenData
     /**
      * Default constructor.
      */
-	public ${symbol_dollar}{class.name}() throws TelosysException 
+	public ${class.name}() throws TelosysException 
 	{
 		super();
 		// TODO : Insert your elements definition here ...

@@ -1,14 +1,11 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 /*
  * Navigation service
  *
- * Created on ${symbol_dollar}today.date ( Time ${symbol_dollar}today.time )
+ * Created on $today.date ( Time $today.time )
  *
  */
 
-package ${symbol_dollar}class.getPackage();
+package $class.getPackage();
 
 import org.objectweb.telosys.common.ResourceView;
 import org.objectweb.telosys.common.ScreenView;
@@ -29,10 +26,10 @@ import org.objectweb.telosys.service.StandardScreenService;
  * @author xx
  *
  */
-public class ${symbol_dollar}class.getName() extends StandardScreenService
+public class $class.getName() extends StandardScreenService
 {
    /* (non-Javadoc)
-    * @see org.objectweb.telosys.service.ScreenService ${symbol_pound} execute(org.objectweb.telosys.screen.env.ScreenSession, org.objectweb.telosys.service.ServiceRequest, org.objectweb.telosys.service.ServiceResponse)
+    * @see org.objectweb.telosys.service.ScreenService # execute(org.objectweb.telosys.screen.env.ScreenSession, org.objectweb.telosys.service.ServiceRequest, org.objectweb.telosys.service.ServiceResponse)
     */
    public View execute(ScreenSession screenSession, ServiceRequest request, ServiceResponse response) throws TelosysException
    {

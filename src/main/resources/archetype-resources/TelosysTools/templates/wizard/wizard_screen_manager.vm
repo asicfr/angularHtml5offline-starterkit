@@ -1,12 +1,9 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 /*
- * ${symbol_dollar}screendata.name manager 
- * Created on ${symbol_dollar}today.date ( Time ${symbol_dollar}today.time )
+ * $screendata.name manager 
+ * Created on $today.date ( Time $today.time )
  */
 
-package ${symbol_dollar}class.package;
+package $class.package;
 
 import org.objectweb.telosys.common.TelosysException;
 import org.objectweb.telosys.dal.dao.DatabaseSession;
@@ -16,14 +13,14 @@ import org.objectweb.telosys.screen.core.ScreenContext;
 import org.objectweb.telosys.screen.core.ScreenData;
 import org.objectweb.telosys.screen.core.StandardScreenDataAccessor;
 
-import ${symbol_dollar}screendata.fullName;
+import $screendata.fullName;
 
 /**
- * ${symbol_dollar}screendata.name manager ( server-side actions implementation )
+ * $screendata.name manager ( server-side actions implementation )
  * @author xx
  *
  */
-public class ${symbol_dollar}class.name extends StandardScreenDataAccessor
+public class $class.name extends StandardScreenDataAccessor
 {
 
 //    private MyDAO _dao = new MyDAO();
@@ -31,16 +28,16 @@ public class ${symbol_dollar}class.name extends StandardScreenDataAccessor
     /**
      * Default constructor.
      */
-    public ${symbol_dollar}{class.name}()
+    public ${class.name}()
     {
-		super( ${symbol_dollar}{screendata.name}.class ); // Use the default database
-		//super( ${symbol_dollar}{screendata.name}.class, 1 ); // Use the database ${symbol_pound}1
-		//super( ${symbol_dollar}{screendata.name}.class, NO_DATABASE ); // Do not use any database
+		super( ${screendata.name}.class ); // Use the default database
+		//super( ${screendata.name}.class, 1 ); // Use the database #1
+		//super( ${screendata.name}.class, NO_DATABASE ); // Do not use any database
 	}
 
 	public void load(ScreenData screenData, ScreenContext context, ScreenRequest request, ScreenResponse response, DatabaseSession dbSession) throws TelosysException 
 	{
-    	${symbol_dollar}{screendata.name} data = (${symbol_dollar}{screendata.name}) screenData ;
+    	${screendata.name} data = (${screendata.name}) screenData ;
     	
 //    	//--- Get the primary key parameter  
 //    	String sMyParameter = request.getParameter("myparameter") ;
@@ -84,7 +81,7 @@ public class ${symbol_dollar}class.name extends StandardScreenDataAccessor
 
 	public void save(ScreenData screenData, ScreenContext context, ScreenRequest request, ScreenResponse response, DatabaseSession dbSession) throws TelosysException 
 	{
-    	${symbol_dollar}{screendata.name} data = (${symbol_dollar}{screendata.name}) screenData ;
+    	${screendata.name} data = (${screendata.name}) screenData ;
 //    	//--- SAVE CURRENT BEAN
 //    	MyVO vo = data.getXxxxxx();
 //    	if ( vo != null )
@@ -96,17 +93,17 @@ public class ${symbol_dollar}class.name extends StandardScreenDataAccessor
 
 	public void insert(ScreenData screenData, ScreenContext context, ScreenRequest request, ScreenResponse response, DatabaseSession dbSession) throws TelosysException 
 	{
-    	${symbol_dollar}{screendata.name} data = (${symbol_dollar}{screendata.name}) screenData ;
+    	${screendata.name} data = (${screendata.name}) screenData ;
 	}
 
 	public void update(ScreenData screenData, ScreenContext context, ScreenRequest request, ScreenResponse response, DatabaseSession dbSession) throws TelosysException 
 	{
-    	${symbol_dollar}{screendata.name} data = (${symbol_dollar}{screendata.name}) screenData ;
+    	${screendata.name} data = (${screendata.name}) screenData ;
 	}
 
 	public void delete(ScreenData screenData, ScreenContext context, ScreenRequest request, ScreenResponse response, DatabaseSession dbSession) throws TelosysException 
 	{
-    	${symbol_dollar}{screendata.name} data = (${symbol_dollar}{screendata.name}) screenData ;
+    	${screendata.name} data = (${screendata.name}) screenData ;
 //    	//--- DELETE the given primary key parameter  
 //    	String sMyParameter = request.getParameter("myparameter") ;
 //    	if ( sMyParameter != null )
